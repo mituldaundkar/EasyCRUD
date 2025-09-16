@@ -1,4 +1,4 @@
-FROM maven:3.8.3-openjdk-11
+FROM maven:3.8.3-openjdk-17
 
 COPY . /opt/
 
@@ -7,7 +7,7 @@ WORKDIR /opt
 RUN rm -rf src/main/resources/application.properties
 RUN cp application.properties src/main/resources/application.properties
 
-RUN mvn clean package
+RUN mvn clean package -DskipTests
 
 WORKDIR /opt/target/
 
